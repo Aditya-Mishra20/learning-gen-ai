@@ -116,8 +116,8 @@ Hint: Use the tuple methods .count() and .index().
 # print(f"The index of the first occurrence of 4 is {index_4}.")  
 
 
-#membership
-
+#membership testing
+print(f"Is 3 in tuple? { 3 in t}")
 
 
 
