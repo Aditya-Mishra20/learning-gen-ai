@@ -1,5 +1,5 @@
 # pip freeze > requirements.txt is command that create a file requirements.txt which shows what packages are installed
-# AIzaSyBglCCIlDbNEpf_BeJMqbilxCBo_BG91aU
+
 import tiktoken
 
 encoder = tiktoken.encoding_for_model("gpt-4o")
