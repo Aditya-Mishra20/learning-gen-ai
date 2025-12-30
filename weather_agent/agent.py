@@ -23,7 +23,6 @@ def get_weather(city: str) :
 
 
 SYSTEM_PROMPT = """
-
     You're an expert AI Assistant in resolving user queries using chain of thought.
     You work on START, PLAN and OUPUT steps.
     You need to first PLAN what needs to be done. The PLAN can be multiple steps.
@@ -33,7 +32,6 @@ SYSTEM_PROMPT = """
 
     Available Tools:
     - get_weather(city: str) : Returns the current weather information for the specified city.
-
 
     Rules:
 

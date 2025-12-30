@@ -36,7 +36,7 @@ PLAN: { "step": "PLAN": "content": "now we must divide 15 / 10 which is 1.5" }
 PLAN: { "step": "PLAN": "content": "now we must add 2 + 1.5 which is 3.5" }
 OUTPUT: { "step": "OUTPUT", "content": "The final answer is 3.5" }
 
-Example 1:
+Example 2:
 START: Hey,What is the current weather of Jaipur?
 PLAN: { "step": "PLAN": "content": "Seems like user is interested in current weather of a city called Jaipur.
 PLAN: { "step": "PLAN": "content": "This query requires real time information. Let's see if relevant tool is available." }
@@ -92,12 +92,23 @@ data = {
     "response_format": OUTPUTFORMAT.model_json_schema(),
     "messages": message_history,
     }
-    
-response = requests.post(url,  json=data)
 
-raw = response.json()['message']['content']
-res = json.loads(raw)
-print("final output >>>", res['content'])
+while True:
+
+    response = requests.post(url,  json=data)
+    raw = response.json()['message']['content']
+    print("RAW MODEL OUTPUT >>>", repr(raw))
+
+    res = json.loads(raw)
+    message_history.append({"role": "assistant", "content": raw})
+    if res['step'] == 'START':
+        print(f"🔥", res['content'])
+    elif res['step'] ==  'PLAN':
+        print(f'🧠', res['content'])
+    elif res['step'] == 'TOOL':
+        print(f'🛠️ ', res['tool'], res['input'])
+    elif res['step'] == 'OUTPUT':
+        print(f'✅', res['content'])
 
 # response.raise_for_status()
 
