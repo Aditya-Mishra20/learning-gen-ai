@@ -99,8 +99,8 @@ while True:
         payload_to_model = {
             "model": "gemma2:2b",
             "stream": False,
-        "format": OUTPUTFORMAT.model_json_schema(),
-        "messages": message_history,
+            "format": OUTPUTFORMAT.model_json_schema(),
+            "messages": message_history,
         }
         raw_response =  requests.post(model_url, json = payload_to_model)
 
