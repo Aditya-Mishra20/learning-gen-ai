@@ -11,7 +11,6 @@ embeddings = OllamaEmbeddings(
 model_url = "http://localhost:11434/api/chat"
 
 vector_db = QdrantVectorStore.from_existing_collection(
-
     url= "http://localhost:6333",
     collection_name = "learning_rag",
     embedding=embeddings
