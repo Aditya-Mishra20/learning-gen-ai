@@ -1,3 +1,4 @@
+from rag_queue.queues.worker import process_query
 from redis import Redis
 from rq import Queue
 queue = Queue(connection=Redis(
@@ -6,4 +7,4 @@ queue = Queue(connection=Redis(
 ))
 
 
-queue.enqueue()
+queue.enqueue(process_query)
